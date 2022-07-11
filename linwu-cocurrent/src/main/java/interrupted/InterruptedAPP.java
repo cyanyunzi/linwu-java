@@ -12,7 +12,7 @@ public class InterruptedAPP {
               }
             });
     t1.start();
-    Thread.sleep(5000L);
+    Thread.sleep(1000L);
     t1.interrupt();
   }
 
@@ -22,8 +22,6 @@ public class InterruptedAPP {
       if (Thread.currentThread().isInterrupted()) {
         throw new InterruptedException("线程被中断");
       }
-
-      Thread.sleep(1000L);
       i++;
       System.out.println(i);
     }
