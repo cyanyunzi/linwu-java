@@ -9,7 +9,6 @@ public class LotteryUtils {
   public static final Random RANDOM = new Random();
 
   public static void SSQ() {
-
     String red = getNumStr(6, 34);
     String blue = getNumStr(1, 17);
     System.out.println(red + "    " + blue);
@@ -23,7 +22,6 @@ public class LotteryUtils {
   }
 
   public static void QXC() {
-
     String red = getNumStr(6, 10);
     String blue = getNumStr(1, 15);
     System.out.println(red + "    " + blue);
