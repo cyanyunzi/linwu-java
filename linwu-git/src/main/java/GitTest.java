@@ -10,6 +10,7 @@ public class GitTest {
         LocalDateTime parse = LocalDateTime.parse("20121123.1111", DateTimeFormatter.ofPattern("yyyyMMdd.HHmm"));
         System.out.println(parse.toLocalDate().toString());
         System.out.println(parse.toLocalTime().toString());
+        System.out.println("测试回滚提交1");
 
     }
 }
