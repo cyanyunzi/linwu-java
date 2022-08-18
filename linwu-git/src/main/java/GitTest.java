@@ -12,6 +12,7 @@ public class GitTest {
         System.out.println(parse.toLocalTime().toString());
         System.out.println("测试回滚提交1");
         System.out.println("测试回滚提交2");
+        System.out.println("测试回滚提交3");
 
     }
 }
