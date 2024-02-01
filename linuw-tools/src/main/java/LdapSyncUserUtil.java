@@ -1,3 +1,6 @@
+import cer.DummySSLSocketFactory;
+import cer.LdapSocketFactory;
+
 import javax.naming.AuthenticationException;
 import javax.naming.Context;
 import javax.naming.NamingEnumeration;
@@ -31,7 +34,10 @@ public class LdapSyncUserUtil {
         env.put(Context.SECURITY_CREDENTIALS, pwd);
         env.put(Context.SECURITY_PROTOCOL, "ssl");//链接认证服务器
 //        env.put("com.sun.jndi.ldap.connect.timeout", "1");
-
+        String name = DummySSLSocketFactory.class.getName();
+//        env.put("java.naming.ldap.factory.socket", name);
+        env.put("java.naming.ldap.factory.socket", LdapSocketFactory.class.getName());
+//
         LdapContext ldapCtx = new InitialLdapContext(env, null);
         return ldapCtx;
     }
@@ -39,7 +45,7 @@ public class LdapSyncUserUtil {
     public static void main(String[] args) throws Exception {
         syncUser();
 //        validLoginUser();
-
+        System.out.println(1);
 
     }
 
@@ -53,6 +59,9 @@ public class LdapSyncUserUtil {
         HashEnv.put(Context.SECURITY_PRINCIPAL, username); //AD的用户名
         HashEnv.put(Context.SECURITY_CREDENTIALS, pwd); //AD的密码
         HashEnv.put(Context.SECURITY_PROTOCOL, "ssl");//链接认证服务器
+
+
+
         try {
             ctx = new InitialDirContext(HashEnv);// 初始化上下文
         } catch (AuthenticationException e) {
